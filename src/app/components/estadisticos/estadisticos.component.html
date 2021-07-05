@@ -1,0 +1,105 @@
+<div class="container">
+    <h1 class="text-center letras">Media Mediana y Moda</h1>
+    <div class="container">
+        <div class="row">
+        <div class="col-6">
+
+            <form class="mt-5 ">
+                <div class="mb-3">
+                    <label class="form-label">Agregue los datos a calcular separados por coma (,)</label>
+                    <textarea type="text" class="form-control" placeholder="Ejemplo: 21, 54, 32, 65, 12, 45, 21, 54, 32"
+                        [(ngModel)]="muestra" [ngModelOptions]="{ standalone: true }" style="height: 120px;"
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success col-12" (click)="aggMuestra()">
+                    Calcular
+                </button>
+                <!-- <button type="button" class="btn btn-info col-12 mt-2" (click)="generarGrafico()" *ngIf="grafico">
+                    Generar gráfico
+                  </button> -->
+                
+            </form>
+
+        </div>
+        <!-- generar muestra inputs dinamicos para muestra -->
+
+        <div class="col-6">
+
+            <img *ngIf="mostrar" src="{{url+'grafico/'+x}}" width="600px" />
+
+          
+        </div>
+
+
+    </div>
+
+        <div class="col m-auto text-center " *ngIf="grafico" >
+
+        <div class="container mt-5" style="overflow-y: auto; overflow-x: hidden; max-height: 400px">
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <thead class="bg-success">
+                            <tr>
+                                <th scope="col">Valores</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="x">
+                            <tr *ngFor="let result of x">
+                                <td>{{ result }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <table class="table">
+                        <thead class="bg-success">
+                            <tr>
+                                <th scope="col">Media calculada</th>
+                            </tr>
+                        </thead>
+                        <tbody  *ngIf="media">
+                            <tr >
+                                <td>{{media}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <table class="table">
+                        <thead class="bg-success">
+                            <tr>
+                                <th scope="col">Mediana calculada</th>
+                            </tr>
+                        </thead>
+                        <tbody  *ngIf="mediana">
+                            <tr >
+                                <td>{{ mediana }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <table class="table">
+                        <thead class="bg-success">
+                            <tr>
+                                <th scope="col">Moda calculada</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="moda">
+                            <tr>
+                                <td>{{ moda }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+               
+            </div>
+        </div> 
+
+         </div>
+    </div>
+</div>
+<br><br>
+
+  
